@@ -3,7 +3,7 @@ const request = require('request');
 request({
   url: 'https://api.twitch.tv/helix/games/top',
   headers:
-        { 'Client-ID': 'a52jzuqluym2nwkx9hpl1y5ptv20vv' },
+        { 'Client-ID': '' },
 },
 (error, response, body) => {
   console.log(response.statusCode);
