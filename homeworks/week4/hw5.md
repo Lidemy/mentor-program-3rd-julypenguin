@@ -16,23 +16,45 @@ API (Application Programming Interface) 應用程式介面
 - 介紹
 歡迎使用 julypenguin's 餐廳 API 文件，想掌握各分館名稱、地址、空位、菜單等詳細資訊那就要好好研讀我啦！
 
+URL
+https://api.julypenguin/api/restaurant
+
 -說明文件
 一、GET / 查詢
 1. Detail
    好想知道 julypenguin's 餐廳現在所有分館的詳細資訊
-2. Branch
+2. Branch/number
    好想知道某個館的資訊
-3. Menu
+3. Menu/number
    客官來看菜單喔
-4. Tables
+4. Tables/number 
    沒座位也可以站旁邊唷
+
+示範範例：
+回傳 1 號餐廳資料
+curl GET https://api.julypenguin/api/restaurant/branch/1
+
+response:
+{
+  "id": 1,
+  "館名": "別死阿小強",
+  "地址": "新北市xxx區xxx路xx號1樓",
+  "熱門餐點": "黯然銷魂飯",
+  "來客人次": 9527
+},
+...
 
 
 二、DELETE / 刪除
-1. Branch
+1. Branch/number
    餐廳如果倒了記得要刪，但我會復活的不要忘記我
-2. Dishes
+2. Dishes/number
    可以刪掉某道菜，你是不是挑食
+
+示範範例：
+刪除 1號餐廳
+curl DELETE https://api.julypenguin/api/restaurant/branch/1
+
 
 三、POST / 新增
 1. Branch
@@ -40,11 +62,19 @@ API (Application Programming Interface) 應用程式介面
 2. Dishes
    可以新增菜餚，但要在項目上的唷，雖然我都會做
 
+示範範例：
+新增一個餐廳
+curl -d '{"id": 5, "館名": "今晚打老虎"} -X POST https://api.julypenguin/api/restaurant/branch
+
 四、PATCH / 更改
-1. Branch
+1. Branch/number
    改館名，但我通常將錯就錯
-2. Dishes
+2. Dishes/number
    改菜餚，但也是要在項目上的唷
+
+示範範例：
+更改餐廳
+curl -d '{"id": 5, "館名": "皮亞卡箱"} -X POST https://api.julypenguin/api/restaurant/branch/5
 
 
 
