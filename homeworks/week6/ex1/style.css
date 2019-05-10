@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: 微軟正黑體;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.iconBox {
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.fa-y-combinator {
+  font-size: 20px;
+  color: orange;
+}
+
+.header__title {
+  font-weight: 900;
+}
+
+.header {
+  width: 1250px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+  background-color: #ff6600;
+}
+
+.header > ul {
+  display: flex;
+}
+
+.header > ul > li {
+  padding: 8px;
+}
+
+.header > ul > li + li:after {
+  content: "|";
+  position: absolute;
+  top: 25%;
+  right: -1%;
+}
+
+.login {
+  padding: 8px;
+}
+
+.article {
+  width: 1250px;
+  margin: 10px auto;
+  background-color: #f6f6ef;
+}
+
+.article__table__left {
+}
+
+.table__number,
+.triangle {
+  bottom: 12px;
+}
+
+.article__table__right {
+}
+
+.article__table__net {
+  font-size: 12px;
+}
+
+.article__table__aside {
+  display: inline;
+}
+
+.article__table__aside > td {
+  font-size: 12px;
+}
+
+.more__table {
+  margin: 20px 40px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ff6600;
+}
+
+.footer {
+  width: 1250px;
+  margin: 0px auto;
+  padding: 20px 0;
+  background-color: #f6f6ef;
+}
+
+.footer__menu {
+  width: 550px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+.footer__menu > ul {
+  display: flex;
+}
+
+.searchBox {
+  width: 235px;
+  margin: 15px auto;
+}
+
+.search__text {
+}
+
+@media (max-width: 1250px) {
+  .header,
+  .article,
+  .footer {
+    width: 550;
+  }
+}
