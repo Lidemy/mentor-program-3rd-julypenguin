@@ -17,6 +17,7 @@ function removeDOM(fnThis) {
   boxes = document.querySelector(`.${fnThis.name}Box`);
   boxes.removeChild(document.querySelector(`.${fnThis.name}Box > footer`));
   boxes.style.backgroundColor = '#fff';
+  document.querySelector(`#${fnThis.id}`).style.backgroundColor = '#fff';
 }
 
 function checked() {
