@@ -15,7 +15,7 @@ function domRender(fnThis) {
 
 function removeDOM(fnThis) {
   boxes = document.querySelector(`.${fnThis.name}Box`);
-  boxes.removeChild(document.querySelector('footer'));
+  boxes.removeChild(document.querySelector(`.${fnThis.name}Box > footer`));
   boxes.style.backgroundColor = '#fff';
 }
 
@@ -26,8 +26,7 @@ function checked() {
     && document.querySelector(`.${this.name}Star`)
   ) {
     domRender(this);
-  } else {
-    console.log('test');
+  } else if (this.value && document.querySelector(`.necessary__${this.name}`)) {
     removeDOM(this);
   }
 }
