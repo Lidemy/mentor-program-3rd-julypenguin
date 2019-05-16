@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: "微軟正黑體";
+}
+
+.wrapper {
+  display: flex;
+  height: 100vmin;
+  align-items: center;
+}
+
+.wrapper__color {
+  background-color: orange;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.btn__reset {
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.active {
+  visibility: visible;
+  border: 1px solid #aaa;
+  background-color: #e4e4e4;
+  padding: 4px;
+}
+
+.theBest {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 32px;
+}
+
+.record0,
+.record1,
+.record2 {
+  padding: 10px;
+  font-size: 24px;
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}

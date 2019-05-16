@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./normalize.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="bgc__top"></div>
+    <article class="article">
+      <div class="innerBox">
+        <h1>程式導師實驗計畫第三期報名表單</h1>
+        <p>
+          詳情請參考：
+          <a href="#"
+            >https://medium.com/hulis-blog/mentor-program-3rd-47a2e85e33b3</a
+          >
+        </p>
+        <p>填完之後請務必按照文章內的說明再寄信給我，才算報名成功喔</p>
+        <p class="star__necessary">*必填</p>
+      </div>
+      <form class="form">
+        <section class="emailBox">
+          <label for="email" class="email__title">電子郵件地址</label>
+          <div class="star emailStar">*</div>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="您的電子郵件"
+            class="inputBox"
+          />
+        </section>
+        <section class="nicknameBox">
+          <label for="nickname" class="nickname__title">暱稱</label>
+          <div class="star nicknameStar">*</div>
+          <p>該如何稱呼你</p>
+          <input
+            type="text"
+            name="nickname"
+            id="nickname"
+            placeholder="您的回答"
+            class="inputBox"
+          />
+        </section>
+        <section class="signUpBox">
+          <div class="signUp__title">報名類型</div>
+          <div class="star">*</div>
+          <div class="radioBox">
+            <input
+              type="radio"
+              name="signUp"
+              id="signUp1"
+              class="inputBox__radio"
+              checked
+            />
+            <label for="signUp1"
+              >從零到一基礎班（兩個月後開始收保證金5000，淘汰不退還，結業後兩個月內找到工作付一個月半薪水，沒工作不用付</label
+            >
+            <br />
+            <input
+              type="radio"
+              name="signUp"
+              id="signUp2"
+              class="inputBox__radio"
+            />
+            <label for="signUp2"
+              >在職工程師加強班（兩個月後開始收保證金 5000，三個月時收學費
+              35000元台幣，被淘汰不退還</label
+            >
+          </div>
+        </section>
+        <section class="careerBox">
+          <label for="career" class="career__title">現在的職業</label>
+          <div class="star careerStar">*</div>
+          <input
+            type="text"
+            name="career"
+            id="career"
+            placeholder="您的回答"
+            class="inputBox"
+          />
+        </section>
+        <section class="knowPlanBox">
+          <label for="knowPlan" class="knowPlan__title"
+            >怎麼知道這個計畫的？</label
+          >
+          <div class="star knowPlanStar">*</div>
+          <input
+            type="text"
+            name="knowPlan"
+            id="knowPlan"
+            placeholder="您的回答"
+            class="inputBox"
+          />
+        </section>
+        <section class="relatedBox">
+          <label for="related" class="related__title"
+            >是否有程式相關背景？</label
+          >
+          <div class="star relatedStar">*</div>
+          <p>
+            範例：無、高中時候學過C++、學過一點網頁前端、目前在資策會上課...
+          </p>
+          <input
+            type="text"
+            name="related"
+            id="related"
+            placeholder="您的回答"
+            class="inputBox"
+          />
+        </section>
+        <section class="otherBox">
+          <label for="other" class="other__title">其他</label>
+          <p>任何你想說的</p>
+          <input
+            type="text"
+            name="other"
+            id="other"
+            placeholder="您的回答"
+            class="inputBox"
+          />
+        </section>
+
+        <input type="submit" value="提交" class="submitBox" />
+        <div class="note">請勿利用 Google 表單送出密碼。</div>
+      </form>
+    </article>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

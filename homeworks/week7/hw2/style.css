@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: "微軟正黑體";
+  background-color: #f8ede6;
+}
+
+.bgc__top {
+  height: 280px;
+  background-color: #f4e2a7;
+}
+
+.article {
+  width: 650px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-top: 7px solid #ff894b;
+  bottom: 120px;
+  padding: 20px;
+}
+
+.article > div,
+.article > form > section {
+  padding: 20px;
+}
+
+.innerBox > h1 {
+  font-size: 36px;
+}
+
+.innerBox > p {
+  font-size: 14px;
+}
+
+.star__necessary {
+  color: red;
+  padding: 8px 0;
+}
+
+.email__title,
+.nickname__title,
+.signUp__title,
+.career__title,
+.knowPlan__title,
+.related__title,
+.other__title {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 700;
+  padding-top: 28px;
+}
+
+.star {
+  color: red;
+  font-size: 24px;
+  display: inline-block;
+}
+
+.form p {
+  margin: 2px;
+  font-size: 12px;
+}
+
+.emailBox {
+  padding: 20px 0px;
+  margin-bottom: 1px;
+  /* background-color: #fce8e6; */
+}
+
+.emailBox,
+.nicknameBox,
+.signUpBox,
+.careerBox,
+.knowPlanBox,
+.relatedBox,
+.otherBox {
+  margin-bottom: 1px;
+}
+
+.inputBox {
+  display: block;
+  margin-top: 32px;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  width: 300px;
+  /* background-color: #fce8e6; */
+}
+
+.inputBox__radio {
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.submitBox {
+  padding: 8px 24px;
+  margin: 30px 0;
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.necessary__email,
+.necessary__nickname,
+.necessary__career,
+.necessary__knowPlan,
+.necessary__related,
+.necessary__other {
+  padding: 20px 0 0 0;
+  color: red;
+  font-size: 20px;
+  /* background-color: #fce8e6; */
+}
