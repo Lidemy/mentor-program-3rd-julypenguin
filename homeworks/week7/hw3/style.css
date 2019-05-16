@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: "微軟正黑體";
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 208px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.wrapper {
+  height: 100vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app,
+.header,
+.ac,
+.operation,
+.number,
+.equal {
+  border: 1px solid #cccccc;
+}
+
+.app {
+  width: 450px;
+  height: 300px;
+
+  padding: 10px;
+}
+
+.header {
+  height: 56px;
+  font-size: 48px;
+  text-align: end;
+}
+
+.article {
+  height: 240px;
+  padding: 16px 0 0 0;
+}
+
+.ac,
+.operation {
+  background-color: #dddddd;
+}
+
+.number {
+  background-color: #fff;
+}
+
+.equal {
+  background-color: #ff8d00;
+  width: 204px;
+  height: 34px;
+}
+
+.ac,
+.operation,
+.number {
+  width: 92px;
+  height: 34px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+}
