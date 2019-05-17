@@ -67,7 +67,6 @@ body {
 .emailBox {
   padding: 20px 0px;
   margin-bottom: 1px;
-  /* background-color: #fce8e6; */
 }
 
 .emailBox,
@@ -86,7 +85,6 @@ body {
   border: none;
   border-bottom: 1px solid #e0e0e0;
   width: 300px;
-  /* background-color: #fce8e6; */
 }
 
 .inputBox__radio {
@@ -114,5 +112,4 @@ body {
   padding: 20px 0 0 0;
   color: red;
   font-size: 20px;
-  /* background-color: #fce8e6; */
 }

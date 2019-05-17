@@ -27,7 +27,7 @@ function bestScore() {
 
 function endFn() {
   if (time > 0) {
-    time = (time / 1000).toFixed(2);
+    time = (time / 100).toFixed(2);
     alert(`${time} 秒`);
     clearInterval(goTime);
     btnReset.classList.add('active');
@@ -48,7 +48,7 @@ function endFn() {
 function setTime() {
   goTime = setInterval(() => {
     time += 1;
-  }, 1);
+  }, 10);
 }
 
 function start() {
