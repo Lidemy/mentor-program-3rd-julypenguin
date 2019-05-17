@@ -1,7 +1,8 @@
 const wrapper = document.querySelector('.wrapper');
 const btnReset = document.querySelector('.btn__reset');
 let time = 0;
-let goTime = null;
+let goTime = 0;
+let finishTime = 0;
 let goTimeout = null;
 let endScore = 0;
 const bestScores = [0, 0, 0];
@@ -26,8 +27,10 @@ function bestScore() {
 }
 
 function endFn() {
+  finishTime = new Date().getTime();
+  time = finishTime - goTime;
   if (time > 0) {
-    time = (time / 100).toFixed(2);
+    time = (time / 1000).toFixed(2);
     alert(`${time} 秒`);
     clearInterval(goTime);
     btnReset.classList.add('active');
@@ -45,12 +48,6 @@ function endFn() {
   }
 }
 
-function setTime() {
-  goTime = setInterval(() => {
-    time += 1;
-  }, 10);
-}
-
 function start() {
   const startTime = Math.ceil(Math.random() * 2000) + 1000;
   const colorCode = 'abcdef1234567890';
@@ -60,7 +57,7 @@ function start() {
     color += colorCode[number];
   }
   goTimeout = setTimeout(() => {
-    setTime();
+    goTime = new Date().getTime();
     wrapper.style.backgroundColor = color;
   }, startTime);
 }
