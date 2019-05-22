@@ -1,0 +1,110 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: "微軟正黑體";
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.wrapper {
+  padding: 40px 0;
+}
+
+.article {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.enterTextBox {
+  text-align: end;
+}
+
+.submit {
+  margin: 20px 0;
+  padding: 5px;
+  transition: all 0.2s;
+}
+
+.messageBoardBox {
+  width: 100%;
+  border: 1px solid #000;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+}
+
+.comment {
+  padding: 16px;
+  width: 100%;
+  height: 130px;
+}
+
+.nameId {
+  width: 7%;
+  padding-left: 16px;
+}
+
+.content {
+  width: 93%;
+  padding: 24px;
+}
+
+.socialSignBox {
+  width: 100%;
+  padding: 10px;
+  text-align: end;
+}
+
+.far {
+  font-size: 20px;
+  padding: 0 10px;
+  transition: all 0.2s;
+}
+
+.far:active {
+  font-size: 28px;
+}
+
+.page {
+  display: inline-block;
+  border: 1px solid #000;
+  padding: 8px;
+  transition: all 0.2s;
+}
+
+.page:hover {
+  background-color: orange;
+}
+
+.etc {
+  display: inline-block;
+  padding: 8px;
+}
+
+.pageNum {
+  visibility: hidden;
+  position: absolute;
+}
+
+.clearView {
+  visibility: visible;
+  position: relative;
+}
+
+.current {
+  background-color: rgb(199, 199, 199);
+}
+
+.socialSignBox > a {
+  color: red;
+}

@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: "微軟正黑體";
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.imgBox {
+  width: 600px;
+  text-align: center;
+}
+
+.textBox {
+  margin-top: 40px;
+  max-width: 600px;
+  padding: 10px;
+}
+
+.imgBox__inner {
+  width: 100%;
+}
+
+.imgBox__fit {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  border: 1px solid #000;
+}
+
+.image {
+  width: inherit;
+  object-position: center;
+  height: inherit;
+  object-fit: cover;
+  border: 1px solid #000;
+}
+
+.btn {
+  position: absolute;
+  top: 600px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff1965;
+  padding: 15px;
+  line-height: 20px;
+  cursor: pointer;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+.btn:hover {
+  color: orange;
+  background-color: #000;
+}
+
+.btn:active {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0%;
+  padding-top: 0%;
+  background-color: rgba(256, 256, 256, 0.2);
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.btn:hover:before {
+  width: 100%;
+  padding-top: 100%;
+}
+
+.first {
+  background-color: #4482e7;
+}
+
+.second {
+  background-color: #9b9890;
+}
+
+.third {
+  background-color: #f8a98e;
+}
+
+.none {
+  background-color: black;
+  color: white;
+  border: 1px solid #fff;
+}
