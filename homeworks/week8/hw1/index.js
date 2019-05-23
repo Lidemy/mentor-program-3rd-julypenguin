@@ -52,22 +52,8 @@ request.addEventListener('load', () => {
 function reset() {
   textBox.removeChild(document.querySelector('.text'));
   imgBoxFit.innerHTML = '<img class="image" src="./Blocks-0.6s-200px_black.gif" />';
-  switch (bgc.classList[1]) {
-    case 'first':
-      bgc.classList.remove('first');
-      break;
-    case 'second':
-      bgc.classList.remove('second');
-      break;
-    case 'third':
-      bgc.classList.remove('third');
-      break;
-    case 'none':
-      bgc.classList.remove('none');
-      btn.classList.remove('none');
-      break;
-    default:
-  }
+  bgc.classList.remove(bgc.classList[1]);
+  btn.classList.remove('none');
 }
 
 btn.addEventListener('click', () => {
