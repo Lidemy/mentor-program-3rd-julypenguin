@@ -1,5 +1,6 @@
 const contentRequest = new XMLHttpRequest();
 const pageRequest = new XMLHttpRequest();
+const postRequest = new XMLHttpRequest();
 const article = document.querySelector('.article');
 const comment = document.querySelector('.comment');
 const url = 'https://lidemy-book-store.herokuapp.com/posts';
@@ -64,6 +65,7 @@ contentRequest.addEventListener('load', () => {
     const response = contentRequest.responseText;
     const json = JSON.parse(response);
     msgDomRender(json);
+    getRequest(pageRequest, `${url}?_sort=id&_order=desc`);
   } else {
     alert('連線不正確，請重新整理');
   }
@@ -106,16 +108,19 @@ document.querySelector('.article').addEventListener('click', (e) => {
       e.target.innerText = point;
       break;
     case 'submit':
-      contentRequest.open('POST', url, true);
-      contentRequest.setRequestHeader(
+      e.preventDefault();
+      postRequest.open('POST', url, true);
+      postRequest.setRequestHeader(
         'Content-type',
         'application/x-www-form-urlencoded',
       );
-      contentRequest.send(`id&content=${comment.value}`);
+      postRequest.send(`id&content=${comment.value}`);
+      comment.value = '';
+      pageIndex = 1;
+      changePage();
       break;
     default:
   }
 });
 
 getRequest(contentRequest, `${url}?_limit=${limit}&_sort=id&_order=desc`);
-getRequest(pageRequest, `${url}?_sort=id&_order=desc`);

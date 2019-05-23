@@ -1,12 +1,11 @@
 const request = new XMLHttpRequest();
 const url = 'https://api.twitch.tv/kraken/streams/?client_id=';
-const id = '這個欄位要填入client_id';
+const id = 'a52jzuqluym2nwkx9hpl1y5ptv20vv';
 let game = 'League%20of%20Legends';
 const limit = 20;
 let page = 1;
 let offset = 0;
 let wheel = true;
-const gameName = document.querySelector('.gameName');
 
 function requestFn() {
   request.open(
@@ -75,44 +74,16 @@ function reset() {
   removeDom();
 }
 
-const thisGame = new Proxy(
-  {},
-  {
-    get() {
-      return game;
-    },
-    set(obj, prop, value) {
-      game = value;
-      gameName.innerHTML = game;
-      reset();
-      requestFn();
-    },
-  },
-);
-
 document.querySelector('.wrapper').addEventListener('click', (e) => {
-  switch (e.target.classList[0]) {
-    case 'btn':
-      offset = limit * page;
-      page += 1;
-      requestFn();
-      break;
-    case 'lol':
-      thisGame.name = 'League of Legends';
-      break;
-    case 'fortnite':
-      thisGame.name = 'Fortnite';
-      break;
-    case 'hearthstone':
-      thisGame.name = 'Hearthstone';
-      break;
-    case 'chatting':
-      thisGame.name = 'Just Chatting';
-      break;
-    case 'summer':
-      thisGame.name = 'My Summer Car';
-      break;
-    default:
+  if (e.target.classList[0] === 'btn') {
+    offset = limit * page;
+    page += 1;
+    requestFn();
+  } else if (e.target.classList[0] === 'game') {
+    game = e.target.innerText;
+    document.querySelector('.gameName').innerHTML = game;
+    reset();
+    requestFn();
   }
 });
 
@@ -132,4 +103,4 @@ window.addEventListener('mousewheel', (e) => {
   }
 });
 
-thisGame.name = 'League of Legends';
+requestFn();
