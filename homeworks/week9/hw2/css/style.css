@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: "微軟正黑體";
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.danger {
+  text-align: center;
+}
+
+.wrapper {
+  padding: 40px 0;
+}
+
+.article, .nav {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sign, .user {
+  float: right;
+  padding: 10px;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.sign:hover {
+  color: #188fff;
+}
+
+.clearfix {
+  clear:both;
+}
+
+.article {
+  padding: 40px 0;
+}
+
+.comment {
+  padding: 16px;
+  width: 100%;
+  height: 130px;
+}
+
+.submit {
+  margin: 20px 0;
+  padding: 10px 20px;
+  float: right;
+  border: 2px solid #188fff;
+  border-radius: 4px;
+  background-color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: #188fff;
+  color: #fff;
+}
+
+.messageBox {
+  width: 100%;
+  border: 1px solid #aaaaaa;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  margin-top: 40px;
+  padding: 5px;
+}
+
+.messageBox ~ .messageBox {  
+  margin-top: 20px;
+}
+
+.nameId {
+  width: 100%;
+  padding: 16px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.content {
+  width: 70%;
+  padding: 16px;
+}
+
+.time {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
