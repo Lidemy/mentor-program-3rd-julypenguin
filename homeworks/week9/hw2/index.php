@@ -12,7 +12,7 @@ $db = new Db();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>message_board</title>
-  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -56,19 +56,14 @@ $db = new Db();
         <div class="clearfix"></div>
       </section>
       <?php
-      $sql = "SELECT C.content, C.created_at, U.nickname FROM julypenguin_comments C LEFT JOIN julypenguin_users U ON C.username = U.username ORDER BY created_at DESC";
+      $sql = "SELECT C.content, C.created_at, U.nickname FROM julypenguin_comments C LEFT JOIN julypenguin_users U ON C.username = U.username ORDER BY created_at DESC LIMIT 50";
       $result = $db->query($sql);
-      $number = $result->num_rows;
-      if ($number > 0) {
-        $number = ($number>50) ? 50 : $number;
-        for ($i=0; $i < $number; $i++) { 
-          $row = $result->fetch_assoc();
-          echo "<section class='messageBox'>
-                  <div class='nameId'>$row[nickname]</div>
-                  <div class='content'>$row[content]</div>
-                  <div class='time'>$row[created_at]</div>
-                </section>";
-        }
+      while($row = $result->fetch_assoc()) {
+        echo "<section class='messageBox'>
+                <div class='nameId'>$row[nickname]</div>
+                <div class='content'>$row[content]</div>
+                <div class='time'>$row[created_at]</div>
+              </section>";
       }
       ?>
     </article>
