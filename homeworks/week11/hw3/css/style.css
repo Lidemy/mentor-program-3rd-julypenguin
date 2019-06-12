@@ -128,24 +128,24 @@ a {
   display: inline-block;
 }
 
-.far, .fas {
+.fa-edit, .fa-times {
   font-size: 20px;
 }
 
-.far {
-  margin: 16px;
+.fa-edit {
+  margin-right: 16px;
   color: #188fff;
 }
 
-.fas {
+.fa-times {
   color: red;
 }
 
-.far:hover {
+.fa-edit:hover {
   font-weight: 900;
 }
 
-.fas:hover {
+.fa-times:hover {
   font-size: 22px;
 }
 
