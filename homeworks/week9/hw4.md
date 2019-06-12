@@ -16,10 +16,10 @@ TEXT
 ## Cookie 是什麼？在 HTTP 這一層要怎麼設定 Cookie，瀏覽器又會以什麼形式帶去 Server？
 
 Cookie
-1. 是 Server 暫存放在電腦的一筆資料
+1. 可以在瀏覽器存資訊的地方
 2. 存在用戶端
 3. 會有一個期限，到期後要跟 server 要一個新的
-4. 存在瀏覽器中，不同瀏覽器不可以相互使用
+4. 不同瀏覽器不可以相互使用
 
 HTTP 這一層要怎麼設定 Cookie
 - Server 收到 HTTP 請求時回傳帶 Set-Cookie 的 header 讓瀏覽器儲存起來。
