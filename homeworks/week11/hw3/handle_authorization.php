@@ -10,8 +10,8 @@ $query->checkUser();
 
 if ($query->checkSuperAdmin()) {
   $query->updateAuthorization($authority, $username) ?
-  alertMessage("修改成功", "./authorization.php") :
-  alertMessage("$db->conn->error", "./authorization.php");
+    alertMessage("修改成功", "./authorization.php") :
+    alertMessage("$db->conn->error", "./authorization.php");
 } else {
   header("Location: ./index.php");
 }
