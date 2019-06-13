@@ -4,11 +4,11 @@ require_once("utils.php");
 
 $db = new Db();
 $query = new Query();
-$username = $_POST['username'];
 $content = $_POST['content'];
+$query->checkUser();
 
 if (!empty($content)) {
-  $query->insertComments($username, $content) ?
+  $query->insertComments($query->username, $content) ?
     header("Location: ./index.php") : 
     alertMessage("$db->conn->error", "index.php");
 } else {

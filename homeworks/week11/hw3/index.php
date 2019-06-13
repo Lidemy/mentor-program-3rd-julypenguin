@@ -32,7 +32,6 @@ $query = new Query();
         <h2>歡迎留言</h2>
         <form class="enterTextBox" action="handle_add_comment.php" method="post">
           <textarea class="comment" name="content" placeholder="想說些什麼嗎？"></textarea>
-          <input type="hidden" name="username" value="<?php echo $query->username ?>">
           <?php 
             echo (isset($_COOKIE["member_id"]))?
               "<input class='submit' type='submit' value='送出!' />" :

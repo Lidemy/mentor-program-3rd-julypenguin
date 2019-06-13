@@ -6,8 +6,14 @@ $db = new Db();
 $query = new Query();
 $authority = $_POST['authority'];
 $username = $_POST['username'];
+$query->checkUser();
 
-$query->updateAuthorization($authority, $username) ?
+if ($query->checkSuperAdmin()) {
+  $query->updateAuthorization($authority, $username) ?
   alertMessage("修改成功", "./authorization.php") :
   alertMessage("$db->conn->error", "./authorization.php");
+} else {
+  header("Location: ./index.php");
+}
+
 ?>

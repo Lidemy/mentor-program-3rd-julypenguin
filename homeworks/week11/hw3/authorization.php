@@ -19,7 +19,9 @@ $query = new Query();
       <nav class="nav">
         <?php 
           include_once("template/navbar.php"); 
-          !($query->checkSuperAdmin()) && header("Location: ./index.php");
+          if(!($query->checkSuperAdmin())) {
+            header("Location: ./index.php");
+          }
         ?>
         <div class="clearfix"></div>
       </nav>

@@ -7,8 +7,12 @@ $id = $_GET['id'];
 
 $query->checkUser();
 
-$query->username === $query->checkContentUsername($id) || $query->checkAdmin() ?
-  $query->deleteComment($id) && alertMessage("刪除成功", "./admin.php") : alertMessage("權限不足", "./index.php");
-
+if ($query->username === $query->checkContentUsername($id) || $query->checkAdmin() ) {
+  if($query->deleteComment($id)) {
+    alertMessage("刪除成功", "./admin.php");
+  }
+} else {
+  alertMessage("權限不足", "./index.php");
+}
 
 
