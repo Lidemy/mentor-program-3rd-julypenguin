@@ -1,0 +1,350 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: "微軟正黑體";
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.danger {
+  text-align: center;
+}
+
+.wrapper {
+  padding: 40px 0;
+}
+
+.header {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.article, .nav {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 500px;
+}
+
+.sign, .user {
+  float: right;
+  padding: 10px;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.sign:hover {
+  color: #188fff;
+}
+
+.clearfix {
+  clear:both;
+}
+
+.article {
+  padding: 40px 0;
+}
+
+.comment {
+  padding: 16px;
+  width: 100%;
+  height: 130px;
+}
+
+.submit {
+  margin: 20px 0;
+  padding: 10px 20px;
+  float: right;
+  border: 2px solid #188fff;
+  border-radius: 4px;
+  background-color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: #188fff;
+  color: #fff;
+}
+
+.page {
+  display: inline-block;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 6px;
+  padding: 8px;
+  margin: 5px;
+  transition: all 0.2s;
+}
+
+.etc {
+  display: inline-block;
+  padding: 8px;
+}
+
+.pageNum:hover{
+  border: 1px solid #188fff;
+  color: #188fff;
+}
+
+.no-allow{
+  cursor:not-allowed
+}
+
+.current {
+  border: 1px solid #188fff;
+  color: #188fff;
+}
+
+.message-box {
+  width: 100%;
+  border: 1px solid #aaaaaa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  margin-top: 40px;
+  padding: 5px;
+}
+
+.message-box ~ .message-box {  
+  margin-top: 20px;
+}
+
+.message-box:hover {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.nameId {
+  width: 85%;
+  padding: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;;
+}
+
+.fa-edit, .fa-times, .fa-thumbs-up, .thumbsup-number {
+  font-size: 20px;
+}
+
+.fa-edit {
+  margin-right: 16px;
+  color: #188fff;
+}
+
+.fa-thumbs-up {
+  margin-left: 16px;
+}
+
+.fa-thumbs-up, .thumbsup-number {
+  color: #188fff;  
+}
+
+.fa-times {
+  color: red;
+}
+
+.fa-edit:hover {
+  font-weight: 600;
+}
+
+.fa-times:hover, .fa-thumbs-up:hover {
+  font-size: 22px;
+}
+
+.content {
+  width: 70%;
+  padding: 16px;
+  word-break: break-word;
+}
+
+.time {
+  padding: 10px;
+}
+
+.original {
+  background-color: #e1ebf7;
+}
+
+.subContentBox {
+  width: 100%;
+  display: flex;
+  border-radius: 5px;
+}
+
+
+
+.next-arror {
+  padding: 21px 0 0 10px;
+}
+
+.inner-info__wrapper {
+  width: 100%;
+}
+
+.inner-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 5px;
+  margin-top: 5px; 
+}
+
+.inner-info:hover {
+  background-color: #d6dafa;
+}
+
+.inner-enterTextBox {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.inner-comment {
+  width: 85%;
+  height: 40px;
+}
+
+.inner-submit {
+  display: inline-block;
+  height: 30px;
+  border: 2px solid #188fff;
+  background-color: #fff;
+  font-weight: 700;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.inner-submit:hover {
+  background-color: #188fff;
+  color: #fff;
+}
+
+.update-content {
+  display:block;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.edit-box {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-btn {
+  border: 2px solid #188fff;
+  background-color: #fff;
+  padding: 4px 12px;
+  font-size: 20px;
+  display:inline-block;
+  margin: 10px;
+  cursor: default;
+}
+
+.edit-btn:hover {
+  font-weight:700;
+  }
+
+.manage {
+  display: inline-block;
+  font-size: 40px;
+  margin: 20px;
+}
+
+.manage:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #DADADA;
+}
+
+.update__title {
+  margin-top: 80px;
+}
+
+/* 權限管理 */
+.countainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.userinfo-box {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.userinfo-box:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.avatar-box {
+  display: flex;
+  justify-content: center;
+}
+
+.user-box {
+  padding: 20px 20px 0 20px;
+  font-size: 20px;
+}
+
+.fa-user-circle {
+  font-size: 120px;
+  color: #E9A368;
+}
+
+.user-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nickname, .username, .count {
+  display: inline-block;
+  word-break: break-all;
+}
+
+.authority__title {
+  display: inline-block;
+}
+
+
+
+
+
