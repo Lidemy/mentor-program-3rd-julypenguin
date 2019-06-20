@@ -1,7 +1,7 @@
 <?php
 require_once("query.php");
 $query = new Query();
-$id = (int)$_GET['id'];
+$id = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ $id = (int)$_GET['id'];
     </header>
     <article class="article">
       <?php
-      $result = $query->checkContent()->get_result();
+      $result = $query->checkSubContent();
       while($row = $result->fetch_assoc()) {
         if ($id === $row['id']) {
         echo   "<section class='message-box'>
