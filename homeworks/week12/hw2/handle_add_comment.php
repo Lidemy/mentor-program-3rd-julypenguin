@@ -10,9 +10,11 @@ $parentId = $_POST['parent_id'];
 $query->checkUser();
 
 if (!empty($content)) {
-  $query->insertComments($query->username, $layer, $parentId, $content) ?
-    header("Location: ./index.php") :
+  if ($query->insertComments($query->username, $layer, $parentId, $content)->insert_id > 0) {
+    header("Location: ./index.php");
+  } else {
     alertMessage("$db->conn->error", "index.php");
+  }
 } else {
   alertMessage("請輸入文字", "index.php");
 }

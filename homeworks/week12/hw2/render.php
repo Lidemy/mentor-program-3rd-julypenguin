@@ -54,11 +54,34 @@ class Render {
   }
 
   function innerTextBox($nickname, $layer, $id) {
+    if (isset($_COOKIE['member_id'])) {
     echo  "<form class='inner-enterTextBox' action='handle_add_comment.php' method='post'>
             <textarea class='inner-comment' name='content' placeholder='回應 $nickname'></textarea>
             <input type='hidden' name='layer' value=$layer>
             <input type='hidden' name='parent_id' value=$id>
             <input class='inner-submit' type='submit' value='回覆留言' />
           </form>";
+    }
+  }
+
+  function subContent($row, $layerStart, $layerEnd) {
+    if ($layerStart > $layerEnd) {
+      return;
+    }
+    $this->innerTextBox($row['nickname'], $layerStart, $row['id']);
+  
+    $query2 = new Query();
+    $result2 = $query2->checkSubContent();
+    while ($row2 = $result2->fetch_assoc()) {
+      if ($row2['layer'] === (string)$layerStart && (string)$row['id'] === $row2['parent_id']) {
+        $this->subContentStart();
+        $this->checkOriginalStart($row['username'], $row2['username']);
+        $this->nicknameAndEdit($row2['nickname'], $row2['username'], $row2['id']);
+        $this->socialIconAndContent($row2['content'], $row2['id'], $row2['countNum'], $row2['created_at']);
+        $this->checkOriginalEnd();
+        $this->subContent($row2, $layerStart+1, $layerEnd);
+        $this->subContentEnd();
+      }
+    }
   }
 }

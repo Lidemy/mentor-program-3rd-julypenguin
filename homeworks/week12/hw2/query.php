@@ -130,30 +130,19 @@ class Query {
             WHERE username = ? ";
   }
 
-  private function stmtExecute() {
-    $sql = func_get_args()[0];
-    $type = func_get_args()[1];
-    $argument1 = func_get_args()[2];
-    func_num_args() > 3 && $argument2 = func_get_args()[3];
-    func_num_args() > 4 && $argument3 = func_get_args()[4];
-    func_num_args() > 5 && $argument4 = func_get_args()[5];
-  
-    $stmt = $this->db->prepare($sql);
-
-    switch (func_num_args()) {
-      case 4:
-      $stmt->bind_param($type, $argument1, $argument2);
-        break;
-      case 5: 
-      $stmt->bind_param($type, $argument1, $argument2,  $argument3);
-        break;
-      case 6:
-      $stmt->bind_param($type, $argument1, $argument2,  $argument3, $argument4);
-        break;
-      default:
-        $stmt->bind_param($type, $argument1);
-        break;
+  private function refValues($arr){
+    if (strnatcmp(phpversion(),'5.3') >= 0) {
+      $refs = array();
+      foreach($arr as $key => $value)
+        $refs[$key] = &$arr[$key];
+      return $refs;
     }
+    return $arr;
+  }
+
+  private function stmtExecute($sql, ...$args) {
+    $stmt = $this->db->prepare($sql);
+    call_user_func_array(array($stmt, 'bind_param'), self::refValues($args));
     $stmt->execute();
     return $stmt;
   }

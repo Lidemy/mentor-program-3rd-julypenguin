@@ -12,8 +12,11 @@ $query->checkUser();
 if (empty($content)) {
   alertMessage("請輸入至少一個字", "./update.php?id=$id");
 } else if ($query->username === $query->checkContentUsername($id) || $query->checkAdmin()){
-  $query->updateContent($content, $id) ? 
-    alertMessage("修改成功", "./admin.php") : alertMessage("發生錯誤 $db->conn->error", "./admin.php");
+  if ($query->updateContent($content, $id)->affected_rows > 0) {
+    alertMessage("修改成功", "./admin.php");
+  } else {
+    print_r($db->conn->error);
+  }
 } else {
   alertMessage("無法修改", "./index.php");
 }
