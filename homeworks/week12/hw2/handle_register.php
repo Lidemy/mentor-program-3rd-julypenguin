@@ -19,6 +19,7 @@ if (empty($username) || empty($password) || empty($nickname)) {
   } else {
     alertMessage('已有相同帳號', './register.php');  
   }
+}
 
 
 
