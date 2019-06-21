@@ -64,7 +64,7 @@ class Render {
     }
   }
 
-  function subContent($row, $layerStart, $layerEnd) {
+  function subContent($row, $layerStart, $layerEnd, $originUser) {
     if ($layerStart > $layerEnd) {
       return;
     }
@@ -75,11 +75,11 @@ class Render {
     while ($row2 = $result2->fetch_assoc()) {
       if ($row2['layer'] === (string)$layerStart && (string)$row['id'] === $row2['parent_id']) {
         $this->subContentStart();
-        $this->checkOriginalStart($row['username'], $row2['username']);
+        $this->checkOriginalStart($originUser, $row2['username']);
         $this->nicknameAndEdit($row2['nickname'], $row2['username'], $row2['id']);
         $this->socialIconAndContent($row2['content'], $row2['id'], $row2['countNum'], $row2['created_at']);
         $this->checkOriginalEnd();
-        $this->subContent($row2, $layerStart+1, $layerEnd);
+        $this->subContent($row2, $layerStart+1, $layerEnd, $originUser);
         $this->subContentEnd();
       }
     }
