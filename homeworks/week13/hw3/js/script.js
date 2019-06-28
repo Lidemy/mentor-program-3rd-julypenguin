@@ -80,9 +80,11 @@ function navbar() {
 }
 
 // 主訊息輸入框
-function enterTextBox(userInfo) {
-  if (userInfo !== 'noUsername') {
-    const enterTextBoxDiv = `
+function enterTextBox() {
+  getApi('checkUser')
+    .then((response) => {
+      if (response.username) {
+        const enterTextBoxDiv = `
       <h2>歡迎留言</h2>
       <form class="enterTextBox" action="" method="post">
         <textarea class="comment form-control" name="content" placeholder="想說些什麼嗎？"></textarea>
@@ -90,8 +92,10 @@ function enterTextBox(userInfo) {
       </form>
       <div class="clearfix"></div>
     `;
-    $('.enterMessage').append(enterTextBoxDiv);
-  }
+        $('.enterMessage').append(enterTextBoxDiv);
+      }
+    })
+    .catch(err => console.log('錯誤', err));
 }
 
 // 子留言回覆輸入框
@@ -230,11 +234,9 @@ function msgDomRender(userInfo) {
 function checkUserMsgDomRender() {
   getApi('checkUser')
     .then((resUserInfo) => {
-      enterTextBox(resUserInfo.username);
       msgDomRender(resUserInfo.username);
     })
     .catch((err) => {
-      enterTextBox('noUsername');
       msgDomRender('noUsername');
       console.log('錯誤', err);
     });
@@ -395,17 +397,20 @@ function notAdminLeave() {
 
 $(() => {
   navbar();
-  pageRender('');
+  enterTextBox();
+  pageRender();
   notAdminLeave();
   authorizationCard();
 
   // 監聽 navbar
   $('.nav').on('click', (e) => {
+    // 註冊按鈕
     if ($(e.target).hasClass('registerBtn')) {
       $('.loginbox').slideUp();
       $('.registerbox').slideToggle();
     }
 
+    // 登入按鈕
     if ($(e.target).hasClass('loginBtn')) {
       $('.registerbox').slideUp();
       $('.loginbox').slideToggle();
@@ -414,6 +419,7 @@ $(() => {
 
   // 監聽主體
   $('.article').on('click', (e) => {
+    // 刪除按鈕
     if ($(e.target).hasClass('fa-times')) {
       $(e.target).parent('.message-box').hide(300);
       $(e.target).parents('.subContentBox').hide(300);
@@ -423,6 +429,7 @@ $(() => {
       postData('handle_delete.php', deleteData);
     }
 
+    // 修改留言按鈕
     if ($(e.target).hasClass('fa-edit')) {
       const contentId = $(e.target).data('id');
       const contentLayer = $(e.target).data('layer');
@@ -431,25 +438,29 @@ $(() => {
       $('.header, .article').toggleClass('disable');
     }
 
+    // 第幾頁按鈕
     if ($(e.target).hasClass('page')) {
       pageIndex = Number($(e.target).text());
-      pageRender(`api.php?page=${pageIndex}`);
+      pageRender();
     }
 
+    // 上一頁按鈕
     if ($(e.target).hasClass('pre-page')) {
       if (pageIndex > 1) {
         pageIndex -= 1;
-        pageRender(`api.php?page=${pageIndex}`);
+        pageRender();
       }
     }
 
+    // 下一頁按鈕
     if ($(e.target).hasClass('next-page')) {
       if (pageIndex < pages) {
         pageIndex += 1;
-        pageRender(`api.php?page=${pageIndex}`);
+        pageRender();
       }
     }
 
+    // 最大的留言按鈕
     if ($(e.target).hasClass('submit')) {
       e.preventDefault();
       const addContentData = {
@@ -461,6 +472,7 @@ $(() => {
       $('.comment').val('');
     }
 
+    // 子留言回覆按鈕
     if ($(e.target).hasClass('inner-submit')) {
       e.preventDefault();
       const addSubContentData = {
@@ -471,6 +483,7 @@ $(() => {
       postData('handle_add_comment.php', addSubContentData);
     }
 
+    // 按讚
     if ($(e.target).hasClass('thumbs-up-pointer')) {
       const addThumpUp = {
         id: `${$(e.target).data('id')}`,
@@ -481,6 +494,7 @@ $(() => {
 
   // 監聽 更改留言頁面
   $('.updateContent').on('click', (e) => {
+    // 取消按鈕
     if ($(e.target).hasClass('cancel')) {
       $('.updateContent').fadeOut();
       $(e.target).parents('.message-box')
@@ -488,6 +502,7 @@ $(() => {
       $('.header, .article').toggleClass('disable');
     }
 
+    // 確認更改留言按鈕
     if ($(e.target).hasClass('ok')) {
       e.preventDefault();
       const updateData = {
@@ -504,6 +519,7 @@ $(() => {
 
   // 監聽 authorization.php
   $('.authorization-wrapper').on('click', (e) => {
+    // 修改權限按鈕
     if ($(e.target).hasClass('auth-submit')) {
       e.preventDefault();
       const authData = {
