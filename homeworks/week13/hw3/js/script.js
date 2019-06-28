@@ -80,8 +80,8 @@ function navbar() {
 }
 
 // 主訊息輸入框
-function enterTextBox() {
-  if (document.cookie) {
+function enterTextBox(userInfo) {
+  if (userInfo !== 'noUsername') {
     const enterTextBoxDiv = `
       <h2>歡迎留言</h2>
       <form class="enterTextBox" action="" method="post">
@@ -230,9 +230,11 @@ function msgDomRender(userInfo) {
 function checkUserMsgDomRender() {
   getApi('checkUser')
     .then((resUserInfo) => {
+      enterTextBox(resUserInfo.username);
       msgDomRender(resUserInfo.username);
     })
     .catch((err) => {
+      enterTextBox('noUsername');
       msgDomRender('noUsername');
       console.log('錯誤', err);
     });
@@ -393,7 +395,6 @@ function notAdminLeave() {
 
 $(() => {
   navbar();
-  enterTextBox();
   pageRender('');
   notAdminLeave();
   authorizationCard();
