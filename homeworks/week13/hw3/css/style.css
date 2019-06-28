@@ -1,0 +1,376 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: "微軟正黑體";
+}
+
+a {
+  color: #000;
+}
+
+.danger {
+  text-align: center;
+}
+
+.wrapper {
+  padding: 40px 0;
+}
+
+.header {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.article, .nav {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sign, .user {
+  float: right;
+  padding: 10px;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.clearfix {
+  clear:both;
+}
+
+.article {
+  padding: 40px 0;
+}
+
+.submit {
+  margin: 20px 0;
+  padding: 10px 20px;
+  float: right;
+}
+
+.pageNum {
+  display: inline-block;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 6px;
+  padding: 8px;
+  margin: 5px;
+  transition: all 0.2s;
+  user-select: none
+}
+.pageNum:hover{
+  border: 1px solid #188fff;
+  color: #188fff;
+}
+
+.etc {
+  display: inline-block;
+  padding: 8px;
+  margin-bottom: 40px;
+}
+
+.no-allow{
+  cursor:not-allowed
+}
+
+.current {
+  border: 1px solid #188fff;
+  color: #188fff;
+}
+
+.message-box {
+  width: 100%;
+  border: 1px solid #aaaaaa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.message-box ~ .message-box {  
+  margin-top: 20px;
+}
+
+.message-box:hover {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.nameId {
+  width: 85%;
+  padding: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.fa-edit, .fa-times, .fa-thumbs-up, .thumbsup-number {
+  font-size: 20px;
+}
+
+.fa-edit {
+  color: #188fff;
+}
+
+.fa-thumbs-up {
+  margin-left: 16px;
+}
+
+.fa-thumbs-up, .thumbsup-number {
+  color: #188fff;  
+}
+
+.thumbs-up-pointer {
+  cursor: pointer;
+}
+
+.fa-times {
+  color: red;
+}
+
+.fa-edit:hover {
+  font-weight: 600;
+}
+
+.fa-times:hover, .fa-thumbs-up:hover {
+  font-size: 22px;
+}
+
+.content {
+  width: 70%;
+  padding: 16px;
+  word-break: break-word;
+}
+
+.time {
+  padding: 10px;
+}
+
+.original {
+  background-color: #e1ebf7;
+}
+
+.subContentBox {
+  width: 100%;
+  display: flex;
+  border-radius: 5px;
+}
+
+
+
+.next-arror {
+  padding: 21px 0 0 10px;
+}
+
+.inner-info__wrapper {
+  width: 100%;
+}
+
+.inner-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 5px;
+  margin-top: 5px; 
+}
+
+.inner-info:hover {
+  background-color: #d6dafa;
+}
+
+.inner-enterTextBox {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.inner-submit {
+  margin-left: 10px;
+}
+
+.update-content {
+  display:block;
+  margin-left: 10px;
+  padding: 10px;
+}
+
+.edit-box {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-btn {
+  padding: 4px 12px;
+  font-size: 20px;
+  margin: 10px;
+}
+
+.manage {
+  display: inline-block;
+  font-size: 40px;
+  margin: 20px;
+}
+
+.manage:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #DADADA;
+}
+
+.update__title {
+  margin-top: 80px;
+}
+
+/* 權限管理 */
+.authorization-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.userinfo-box {
+  display: flex;
+  flex-direction: column;
+  width: 310px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #aaaaaa;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.userinfo-box:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.avatar-box {
+  display: flex;
+  justify-content: center;
+}
+
+.user-box {
+  padding: 20px 20px 0 20px;
+  font-size: 20px;
+}
+
+.fa-user-circle {
+  font-size: 120px;
+  color: #E9A368;
+}
+
+.user-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nickname, .username, .count {
+  display: inline-block;
+  word-break: break-all;
+}
+
+.authority__title, .authority-box {
+  display: inline-block;
+}
+
+.updateContent {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.disable {
+  pointer-events: none;
+}
+
+/* register, login */
+.registerbox, .loginbox {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.register-wrapper, .login-wrapper {
+  padding-top: 20px;
+  text-align: center;  
+}
+
+.title {
+  font-size: 40px;
+  display: inline-block;
+}
+
+.title:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #DADADA;
+}
+
+.userBox {
+  padding: 10px;
+}
+
+.userBox > label {
+  display: block;
+  font-size: 24px;
+  width: 300px;
+  padding: 10px;
+}
+
+.userBox > label > input {
+  width: 74%;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid #DADADA;
+  padding: 8px;
+}
+
+.manage-div {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1400px) {
+  .danger {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .danger {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .danger {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .danger {
+    font-size: 16px;
+  }
+}
+
+
