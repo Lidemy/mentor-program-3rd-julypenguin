@@ -157,9 +157,9 @@ function content(contents) {
   return `<div class='content col-sm-8'> ${contents}`;
 }
 
-function socialIconAndTime(id, count, createdAt) {
+function socialIconAndTime(userInfo, id, count, createdAt) {
   let thumbsUp = '';
-  if (document.cookie) {
+  if (userInfo !== 'noUsername') {
     thumbsUp += `<i class='far fa-thumbs-up thumbs-up-pointer' data-id='${id}'></i>`;
   } else {
     thumbsUp += "<i class='far fa-thumbs-up'></i>";
@@ -189,7 +189,7 @@ function subContent(value, originUser, userInfo, layEnd) {
         ${nickname(value[`subContent${i}`].nickname)}
         ${edit(userInfo, value[`subContent${i}`].username, value[`subContent${i}`].id, value[`subContent${i}`].layer)}
         ${content(value[`subContent${i}`].content)}
-        ${socialIconAndTime(value[`subContent${i}`].id, value[`subContent${i}`].thumbsUpCount, value[`subContent${i}`].created_at)}
+        ${socialIconAndTime(userInfo, value[`subContent${i}`].id, value[`subContent${i}`].thumbsUpCount, value[`subContent${i}`].created_at)}
         ${checkOriginalEnd()}
       `;
       let subInnerContentDiv = '';
@@ -219,7 +219,7 @@ function msgDomRender(userInfo) {
               ${nickname(value.nickname)}
               ${edit(userInfo, value.username, value.id, value.layer)}
               ${content(value.content)}
-              ${socialIconAndTime(value.id, value.thumbsUpCount, value.created_at)}
+              ${socialIconAndTime(userInfo, value.id, value.thumbsUpCount, value.created_at)}
               ${subContentDiv}
             </section>
           `;
