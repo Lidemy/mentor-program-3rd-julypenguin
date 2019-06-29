@@ -1,10 +1,3 @@
-<?php
-require_once("query.php");
-require_once('utils.php');
-$query = new Query();
-$query->checkUser();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
