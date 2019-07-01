@@ -14,7 +14,7 @@ if (empty($username) || empty($password) || empty($nickname)) {
   $passwordHash = password_hash($password, PASSWORD_DEFAULT);
   if ($query->insertUsersInfo($username, $passwordHash, $nickname) && 
       $query->insertUsersCertificate($username, $certificateId)) {
-        setcookie("member_id", $certificateId, time() + 3600 * 24, "/", "mentor-program.co", false, true);
+        setcookie("member_id", $certificateId, time() + 3600 * 24, "/group3/julypenguin/", "mentor-program.co", false, true);
         alertMessage('註冊成功', './index.php');
   } else {
     alertMessage('已有相同帳號', './register.php');  

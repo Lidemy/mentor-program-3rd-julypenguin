@@ -14,7 +14,7 @@ if (empty($_POST['username']) || empty($_POST['password'])) {
   if (password_verify($password ,$query->password)) {
     $query->deleteCertificate($username);
     $query->insertUsersCertificate($username, $certificateId);
-    setcookie("member_id", $certificateId, time() + 3600 * 24, "/", "mentor-program.co", false, true);
+    setcookie("member_id", $certificateId, time() + 3600 * 24, "/group3/julypenguin/", "mentor-program.co", false, true);
     alertMessage("登入成功", "./index.php");
   } else {
     alertMessage("帳號或密碼錯誤", "./login.php");
