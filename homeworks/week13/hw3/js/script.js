@@ -336,6 +336,7 @@ function pageRender() {
 function authorizationCard() {
   getApi('userInfo')
     .then((resUserInfo) => {
+      $('.userinfo-box').addClass('isDeleted');
       resUserInfo.forEach((value) => {
         let userInfoDiv = '';
         if (value.classification !== 'super_admin') {
@@ -369,6 +370,7 @@ function authorizationCard() {
                   </section>
         `;
         $('.authorization-wrapper').append(userInfoDiv);
+        $('.isDeleted').remove();
       });
     })
     .catch(err => console.log('錯誤', err));
