@@ -1,0 +1,186 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  position: relative; }
+
+body {
+  font-family: "微軟正黑體"; }
+
+a {
+  font-size: 16px;
+  color: #000;
+  font-weight: normal;
+  text-decoration: none;
+  cursor: pointer; }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+
+.header {
+  background-color: #3e3e3e; }
+  .header .nav {
+    max-width: 1200px;
+    padding: 16px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row; }
+    .header .nav .navTitle {
+      font-size: 24px;
+      color: orange;
+      font-weight: 900;
+      text-align: center; }
+    .header .nav .navGameBox {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 70%;
+      height: auto;
+      color: #fff; }
+      .header .nav .navGameBox .game {
+        padding: 10px 0;
+        margin: 0;
+        width: 100px;
+        height: auto;
+        cursor: pointer;
+        text-align: center; }
+      .header .nav .navGameBox .game:after {
+        content: "";
+        width: 0;
+        height: 1px;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        background-color: orange;
+        transition: all 0.3s; }
+      .header .nav .navGameBox .game:hover:after {
+        width: 100%;
+        height: auto; }
+    .header .nav .searchBox {
+      text-align: center; }
+      .header .nav .searchBox .search {
+        font-size: 24px;
+        color: orange;
+        font-weight: 700; }
+    .header .nav .searchBox > input {
+      width: 50%;
+      height: auto;
+      padding: 0;
+      margin: 10px 10px 10px 0; }
+
+.article {
+  max-width: 1100px;
+  padding: 0;
+  margin: 0 auto; }
+  .article .gameName {
+    text-align: center;
+    padding: 20px;
+    margin: 0; }
+  .article .streams {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px;
+    margin: 0; }
+    .article .streams .videoBox {
+      width: 250px;
+      height: 200px;
+      padding: 0;
+      margin: 10px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); }
+      .article .streams .videoBox .videoImg__inner {
+        width: 100%;
+        height: auto;
+        padding-top: calc(100% * 9 / 16); }
+        .article .streams .videoBox .videoImg__inner .videoImg__fit {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0; }
+        .article .streams .videoBox .videoImg__inner .videoImg__fit > img {
+          width: 100%;
+          height: inherit;
+          display: block;
+          object-fit: cover;
+          object-position: center; }
+      .article .streams .videoBox .userInfo {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        width: auto;
+        height: 59px; }
+        .article .streams .videoBox .userInfo .logoBox {
+          width: 15%;
+          height: auto;
+          padding: 0;
+          margin: 20px; }
+          .article .streams .videoBox .userInfo .logoBox .logbox__inner {
+            width: 100%;
+            height: auto;
+            padding-top: 100%; }
+          .article .streams .videoBox .userInfo .logoBox .logobox__fit {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0; }
+          .article .streams .videoBox .userInfo .logoBox .logobox__fit > img {
+            width: 100%;
+            height: inherit;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%; }
+        .article .streams .videoBox .userInfo .roomInfo {
+          width: auto;
+          height: 100%;
+          display: flex;
+          justify-content: space-around;
+          align-items: flex-start;
+          flex-wrap: nowrap;
+          flex-direction: column; }
+          .article .streams .videoBox .userInfo .roomInfo .status,
+          .article .streams .videoBox .userInfo .roomInfo .name {
+            width: 140px;
+            height: 12px;
+            font-size: 12px;
+            color: #000;
+            font-weight: normal;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap; }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-direction: row; }
+  .footer .btn {
+    padding: 10px 30px;
+    margin: 40px;
+    border: 1px solid #9b9b9b;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
+    transition: all 0.3s;
+    box-shadow: 2px 15px 15px rgba(0, 0, 0, 0.5);
+    background-color: #3e3e3e;
+    cursor: pointer; }
+  .footer .btn:hover {
+    color: orange; }
+  .footer .btn:active {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); }
