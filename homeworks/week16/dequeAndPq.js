@@ -31,26 +31,22 @@ class Deque {
 // Priority Queue，每個元素都有優先級，越優先排越前面，優先級相同就看排列順序
 class PriorityQueue {
   push(element, priority) {
-    this.idx = 0;
-    this.addItem = true;
+    let idx = 0;
 
     if (!this.arr) {
       this.arr = [{ element, priority }];
       return;
     }
 
-    this.arr.forEach((item, idx) => {
+    this.arr.forEach((item, index) => {
       if (item.priority > priority) {
-        this.idx = this.idx || idx + 1;
-        this.addItem = false;
+        idx = idx || index + 1;
       }
     });
 
-    if (this.idx) {
-      this.arr.splice(this.idx - 1, 0, { element, priority });
-    }
-
-    if (this.addItem) {
+    if (idx) {
+      this.arr.splice(idx - 1, 0, { element, priority });
+    } else {
       this.arr = [...this.arr, { element, priority }];
     }
   }
