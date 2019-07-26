@@ -43,4 +43,4 @@ function isWatch() {
 
 const build = gulp.series(css, js, isWatch); // 把多個方法一次執行，這個是同步的
 
-gulp.task('default', build); // 最原始執行 task 的辦法，default 就是 terminal 只要輸入 gulp 就會執行
+gulp.task('default', build); // default 就是 terminal 只要輸入 gulp 就會執行
