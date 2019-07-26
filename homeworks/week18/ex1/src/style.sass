@@ -1,0 +1,194 @@
+$background-color: #3e3e3e
+$color-main: #000
+$color-bright: #fff
+$color-title: orange
+
+@mixin flex($jc:flex-start, $ai: flex-start, $fw: nowrap, $fd: row)
+  display: flex
+  justify-content: $jc
+  align-items: $ai
+  flex-wrap: $fw
+  flex-direction: $fd
+
+@mixin text($size: 16px, $color: #000, $fw: normal)
+  font-size: $size
+  color: $color
+  font-weight: $fw
+
+@mixin overflow
+  text-overflow: ellipsis
+  overflow: hidden
+  white-space: nowrap
+
+@mixin box-size($width: auto, $height: auto)
+  width: $width
+  height: $height
+
+@mixin bottom-Line($bgc: $color-title)
+  position: absolute
+  left: 50%
+  bottom: 0
+  transform: translateX(-50%)
+  background-color: $bgc 
+
+@mixin top-left
+  position: absolute
+  top: 0
+  left: 0
+
+@mixin transition($s: 0.3s)
+  transition: all $s
+
+@mixin border($padding: 10px 30px, $margin: 40px, $border: 1px solid #9b9b9b, $radius: 5px)
+  padding: $padding
+  margin: $margin
+  border: $border
+  border-radius: $radius
+
+@mixin img-fit
+  +box-size(100%, 100%)
+  +top-left()
+
+@mixin img-fit__img
+  +box-size(100%, inherit)
+  display: block
+  object-fit: cover
+  object-position: center
+
+@mixin box-shadow($xy: 2px 2px 2px, $color: rgba(0, 0, 0, 0.5))
+  box-shadow: $xy $color
+
+@mixin padding-margin($padding: 0, $margin: 0)
+  padding: $padding
+  margin: $margin
+
+* 
+  box-sizing: border-box
+  position: relative
+
+body 
+  font-family: "微軟正黑體"
+
+a 
+  +text(16px, $color-main)
+  text-decoration: none
+  cursor: pointer
+
+ul
+  +padding-margin() 
+  list-style: none
+
+.header 
+  background-color: $background-color
+
+  .nav 
+    max-width: 1200px
+    +padding-margin(16px, 0 auto)
+    +flex()
+
+    .navTitle 
+      +text(24px, $color-title, 900)
+      text-align: center
+
+    .navGameBox 
+      +flex(space-around, flex-start, wrap)
+      +box-size(70%)
+      color: $color-bright
+
+      .game
+        +padding-margin(10px 0)
+        +box-size(100px)
+        cursor: pointer
+        text-align: center
+
+      .game:after 
+        content: ""
+        +box-size(0, 1px)
+        +bottom-Line()
+        +transition()
+                
+      .game:hover:after
+        +box-size(100%)
+
+    .searchBox 
+      text-align: center
+
+      .search
+        +text(24px, $color-title, 700)
+
+    .searchBox > input 
+      +box-size(50%)
+      +padding-margin(0, 10px 10px 10px 0)
+
+.article 
+  max-width: 1100px
+  +padding-margin(0, 0 auto)
+
+  .gameName 
+    text-align: center
+    +padding-margin(20px)
+
+  .streams 
+    +flex(space-between, flex-start, wrap)
+    +padding-margin(10px)
+
+    .videoBox
+      +box-size(250px, 200px)
+      +padding-margin(0, 10px)
+      +box-shadow(2px 2px 10px)
+
+      .videoImg__inner
+        +box-size(100%)
+        padding-top: calc(100% * 9 / 16)
+
+        .videoImg__fit
+          +img-fit()
+
+        .videoImg__fit > img
+          +img-fit__img()
+
+      .userInfo 
+        +flex(flex-start, center)
+        +box-size(auto, 59px)
+
+        .logoBox
+          +box-size(15%)
+          +padding-margin(0, 20px)
+
+          .logbox__inner
+            +box-size(100%)
+            padding-top: 100%
+
+          .logobox__fit
+            +img-fit()
+
+          .logobox__fit > img
+            +img-fit__img()
+            border-radius: 50%
+
+        .roomInfo
+          +box-size(auto, 100%)
+          +flex(space-around, flex-start, nowrap, column)
+
+          .status,
+          .name
+            +box-size(140px, 12px)
+            +text(12px)
+            +overflow()
+
+.footer
+  +flex(center)
+
+  .btn
+    +border()
+    +text(16px, $color-bright, 700)
+    +transition()
+    +box-shadow(2px 15px 15px)
+    background-color: $background-color
+    cursor: pointer
+
+  .btn:hover 
+    color: $color-title
+
+  .btn:active 
+    +box-shadow()
