@@ -1,6 +1,6 @@
 /* eslint-env jquery */
 
-const url = 'http://localhost/homework/week19/api.php';
+const url = 'http://julypenguin.tw/week19/api.php';
 let list = [];
 let checkEdit = false;
 
@@ -48,7 +48,7 @@ async function render() {
 }
 
 async function isFetch(option, id, data) {
-  await fetch(`http://localhost/homework/week19/api.php/${id}`, {
+  await fetch(`http://julypenguin.tw/week19/api.php/${id}`, {
     method: option,
     headers: {
       'Content-Type': 'application/json',
