@@ -1,0 +1,23 @@
+body {
+  font-family: 微軟正黑體;
+  padding: 20px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.time {
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.margin {
+  margin: 2px;
+}
+
+.done-bgc {
+  background-color: rgb(161, 224, 156);
+}
