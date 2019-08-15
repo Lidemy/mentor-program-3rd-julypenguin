@@ -1,3 +1,13 @@
 node_modules/
 conn.php
 .DS_STORE
+
+# CodeIgniter
+database.php
+application/cache/*
+!application/cache/index.html
+!application/cache/.htaccess
+
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
