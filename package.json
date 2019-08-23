@@ -28,7 +28,13 @@
   },
   "homepage": "https://github.com/aszx87410/program-3rd#readme",
   "dependencies": {
+    "babel-eslint": "^10.0.2",
     "eslint": "^5.15.1",
+    "eslint-config-react-app": "^5.0.1",
+    "eslint-plugin-flowtype": "^4.2.0",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
