@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import context from './context';
-import AboutPage from './Aboutpage';
-import ArticlesPage from './Articlespage';
+import AboutPage from './AboutPage';
+import ArticlesPage from './ArticlesPage';
 
 const Article = () => {
   const { blog } = useContext(context);

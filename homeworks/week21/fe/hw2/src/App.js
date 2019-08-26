@@ -7,21 +7,21 @@ const Wrapper = styled.div`
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-`
+`;
 const Container = styled.ul`
   margin: 0 auto;
   width: 651px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-`
+`;
 const Cells = styled.li`
   width: 5.263%;
   height:34.2px;
   border: 1px solid #afafaf;
   text-align: center;
   line-height: 36px;
-`
+`;
 
 const Center = styled.li`
   display: flex;
@@ -29,7 +29,7 @@ const Center = styled.li`
   flex-direction: column;
   font-size: 30px;
   line-height: 80px;
-`
+`;
 
 const ResetBtn = styled.button`
   height: 30px;
@@ -52,8 +52,8 @@ const ResetBtn = styled.button`
 function createGrids() {
   let grids = [];
 
-  for (let row = 0; row < 19; row++) {
-      grids = [...grids, Array(19).fill(0)] 
+  for (let row = 0; row < 19; row += 1) {
+    grids = [...grids, Array(19).fill(0)];
   }
   return grids;
 }
@@ -66,82 +66,81 @@ const App = () => {
     if (winner !== 0) return;
     if (cells[yIdx][xIdx] !== 0) return;
     cells[yIdx][xIdx] = grids.player;
-    setGrids({ ...grids, player: -player })
-  }
+    setGrids({ ...grids, player: -player });
+  };
 
   const reset = () => {
-    setGrids({ cells: createGrids(), player: 1, winner: 0 })
-  }
+    setGrids({ cells: createGrids(), player: 1, winner: 0 });
+  };
 
-  const toSynbol = player => {
-    switch (player) {
+  const toSynbol = (thePlayer) => {
+    switch (thePlayer) {
       case 0: return '';
       case 1: return '○';
-      case -1: return '●';    
+      case -1: return '●';
       default:
         break;
     }
-  }
+  };
 
-  const checkLine = (y, yOper, yMax, x, xOper, xMax, xMin = -1 ) => {
+  const checkLine = (y, yOper, yMax, x, xOper, xMax, xMin = -1) => {
     let coordinates = Array(5).fill({ y, x });
 
-    if (yOper === "++") {
-      coordinates = coordinates.map(({ y, x }, idx) => ({ y: y + idx, x }))
+    if (yOper === '++') {
+      coordinates = coordinates.map(({ y, x }, idx) => ({ y: y + idx, x }));
     }
 
-    if (xOper === "++") {
-      coordinates = coordinates.map(({ y, x }, idx) => ({ y, x: x + idx}))
+    if (xOper === '++') {
+      coordinates = coordinates.map(({ y, x }, idx) => ({ y, x: x + idx }));
     }
 
-    if (xOper === "--") {
-      coordinates = coordinates.map(({ y, x }, idx) => ({ y, x: x - idx}))
+    if (xOper === '--') {
+      coordinates = coordinates.map(({ y, x }, idx) => ({ y, x: x - idx }));
     }
 
-    const winner = coordinates.reduce((acc, { y, x }) => {
+    const count = coordinates.reduce((acc, { y, x }) => {
       if (y < yMax && x < xMax && x > xMin) {
-        return acc + cells[y][x]
+        return acc + cells[y][x];
       }
       return 0;
-    }, 0)
+    }, 0);
 
-    if (winner === 5 || winner === -5) return winner / 5;
+    if (count === 5 || count === -5) return count / 5;
     return 0;
-  }
+  };
 
   const getWinner = () => {
-
     for (let y = 0; y < cells.length; y += 1) {
       for (let x = 0; x < cells[y].length; x += 1) {
-
-        if (cells[y][x] !== 0) { 
-          const xLine = checkLine(y, '', 19, x, '++', 15) // 橫線
-          const yLine = checkLine(y, '++', 15, x, '', 19) // 直線
-          const backslash = checkLine(y, '++', 15, x, '++', 15) // 左上-右下
-          const slash = checkLine(y, '++', 15, x, '--', 19, 3) // 右上-左下
-          const winner = xLine + yLine + backslash + slash
-          if (winner) return winner
+        if (cells[y][x] !== 0) {
+          const xLine = checkLine(y, '', 19, x, '++', 15); // 橫線
+          const yLine = checkLine(y, '++', 15, x, '', 19); // 直線
+          const backslash = checkLine(y, '++', 15, x, '++', 15); // 左上-右下
+          const slash = checkLine(y, '++', 15, x, '--', 19, 3); // 右上-左下
+          const win = xLine + yLine + backslash + slash;
+          if (win) return win;
         }
       }
     }
     return 0;
-  }
+  };
 
   useEffect(() => {
-    setGrids({...grids, winner: getWinner()})
-  }, [getWinner()]) 
+    setGrids({ ...grids, winner: getWinner() });
+  }, [getWinner()]);
 
   return (
     <Wrapper>
-      <Container >
+      <Container>
         { cells.map((yLine, yIdx) => (
-            yLine.map((xLine, xIdx) => (
-              <Cells key={xIdx} onClick={() => moveAPiece([yIdx, xIdx])}>
-                { toSynbol(xLine) }
-              </Cells>))
+          yLine.map((xLine, xIdx) => (
+            <Cells key={xIdx} onClick={() => moveAPiece([yIdx, xIdx])}>
+              { toSynbol(xLine) }
+            </Cells>
+          ))
         )) }
       </Container>
-      <Container >
+      <Container>
         <Center>
           { !winner && `現在輪到： ${toSynbol(player)} 玩家` }
           { winner !== 0 && `本局贏家： ${toSynbol(winner)}`}
@@ -150,6 +149,6 @@ const App = () => {
       </Container>
     </Wrapper>
   );
-}
+};
 
 export default App;
