@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, Fragment } from 'react';
 import context from './context';
-import ArticleSinglePage from './Articlesinglepage';
+import ArticleSinglePage from './ArticleSinglePage';
 
 
-const Articlepage = () => {
+const ArticlePage = () => {
   const { blog, setBlog } = useContext(context);
   const { contents, articleId, filter } = blog;
 
@@ -31,4 +31,4 @@ const Articlepage = () => {
   );
 };
 
-export default Articlepage;
+export default ArticlePage;
