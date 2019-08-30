@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: "微軟正黑體";
+}
+
+.wrapper {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.short {
+  text-align: center;
+}
+
