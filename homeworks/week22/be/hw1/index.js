@@ -4,7 +4,7 @@ const session = require('express-session');
 const db = require('./db');
 
 const app = express();
-const port = 3001;
+const port = 5001;
 
 const userController = require('./controllers/user');
 const commentController = require('./controllers/comment');
@@ -30,9 +30,9 @@ app.get('/api', commentController.apiContent);
 app.get('/api/checkuser', userController.apiCheckuser);
 app.get('/api/users', userController.apiUsers);
 
-app.post('/api/create', commentController.create);
-app.patch('/api/update/:id', commentController.update);
-app.delete('/api/destroy/:id', commentController.destroy);
+app.post('/api/comments', commentController.create);
+app.patch('/api/comments/:id', commentController.update);
+app.delete('/api/comments/:id', commentController.destroy);
 app.post('/api/thumbsup', commentController.thumbsup);
 
 app.post('/api/register', userController.handleRegister);

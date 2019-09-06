@@ -33,24 +33,19 @@ const commentController = {
     const { username } = req.session;
     const { id } = req.params;
     const { content } = req.body;
-    let isMyContent = false;
-    let isAdmin = false;
+
     commentModel.getMyComment(id, username, (err, myContent) => {
-      if (myContent) {
-        isMyContent = true;
-      }
+      if (!myContent) return false;
+      userModel.getMe(username, (erro, user) => {
+        if (user[0].classification === 'normal') return false;
+        commentModel.updateComment(content, id, (error, { affectedRows }) => {
+          if (affectedRows) return res.json({ success: true });
+          return res.json({ success: false });
+        });
+        return false;
+      });
+      return false;
     });
-    userModel.getMe(username, (err, user) => {
-      if (user[0].classification !== 'normal') {
-        isAdmin = true;
-      }
-    });
-    if (!isMyContent && isAdmin) return false;
-    commentModel.updateComment(content, id, (err, { affectedRows }) => {
-      if (affectedRows) return res.json({ success: true });
-      return res.json({ success: false });
-    });
-    return false;
   },
 
   destroy: (req, res) => {

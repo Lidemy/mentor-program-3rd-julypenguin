@@ -1,5 +1,5 @@
 /* eslint-env jquery */
-const url = 'http://msg-board.julypenguin.tw/api';
+const url = 'http://localhost:5001/api';
 
 async function getApi(qs) {
   const response = await fetch(`${url}/${qs}`);
@@ -299,7 +299,7 @@ async function notAdminLeave() {
     if (/(super_admin)/.test(classification)) return;
     if (/(admin)/.test(document.location.href) && /(admin)/.test(classification)) return;
   }
-  window.location = 'http://msg-board.julypenguin.tw/';
+  window.location = 'http://localhost:5001';
 }
 
 // 註冊頁面滑進滑出
@@ -319,7 +319,7 @@ function deleteComment() {
   $(this).parent('.message-box').hide(300);
   $(this).parents('.subContentBox').hide(300);
   const id = $(this).data('id');
-  setData('DELETE', 'destroy', id).then(({ success }) => {
+  setData('DELETE', 'comments', id).then(({ success }) => {
     if (!success) {
       alert('刪除失敗');
     }
@@ -343,7 +343,7 @@ function inputComment(e) {
     layer: 1,
     id: 0,
   };
-  setData('POST', 'create', '', addContentData);
+  setData('POST', 'comments', '', addContentData);
   $('.comment').val('');
 }
 
@@ -355,7 +355,7 @@ function inputSubComment(e) {
     layer: `${$(this).parent().children('.inner-comment').data('layer')}`,
     id: `${$(this).parent().children('.inner-comment').data('id')}`,
   };
-  setData('POST', 'create', '', addSubContentData).then(res => console.log(res));
+  setData('POST', 'comments', '', addSubContentData).then(res => console.log(res));
 }
 
 // 按讚
@@ -380,7 +380,7 @@ function editOk(e) {
   const updateData = {
     content: `${$('.update-content__textarea').val()}`,
   };
-  setData('PATCH', 'update', id, updateData).then(({ success }) => alert(success ? '修改成功' : '修改失敗'));
+  setData('PATCH', 'comments', id, updateData).then(({ success }) => alert(success ? '修改成功' : '修改失敗'));
   editCancel(e);
 }
 

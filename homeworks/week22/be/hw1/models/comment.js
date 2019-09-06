@@ -29,22 +29,14 @@ const commentController = {
     db.query(`
       INSERT INTO julypenguin_comments(username, content, layer, parent_id)
       VALUES (?, ?, ?, ?)
-    `, [username, content, layer, parentId],
-    (err, results) => {
-      if (err) return cb(err);
-      return cb(null, results);
-    });
+    `, [username, content, layer, parentId], cb);
   },
 
   setThumbps: (username, commentId, cb) => {
     db.query(`
       INSERT INTO julypenguin_thumbsup(username, comment_id)
       VALUES (?, ?)
-    `, [username, commentId],
-    (err, results) => {
-      if (err) return cb(err);
-      return cb(null, results);
-    });
+    `, [username, commentId], cb);
   },
 
   updateComment: (content, id, cb) => {
@@ -52,33 +44,21 @@ const commentController = {
       UPDATE julypenguin_comments
       SET content = ?
       WHERE id = ?
-    `, [content, id],
-    (err, results) => {
-      if (err) return cb(err);
-      return cb(null, results);
-    });
+    `, [content, id], cb);
   },
 
   deleteComment: (id, cb) => {
     db.query(`
       DELETE FROM julypenguin_comments
       WHERE id = ?
-    `, [id],
-    (err, results) => {
-      if (err) return cb(err);
-      return cb(null, results);
-    });
+    `, [id], cb);
   },
 
   deleteThumbsup: (username, commentId, cb) => {
     db.query(`
       DELETE FROM julypenguin_thumbsup
       WHERE username = ? AND comment_id = ?
-    `, [username, commentId],
-    (err, results) => {
-      if (err) return cb(err);
-      return cb(null, results);
-    });
+    `, [username, commentId], cb);
   },
 
   checkSubContent: (cb) => {
@@ -90,11 +70,7 @@ const commentController = {
       FROM julypenguin_comments C LEFT JOIN julypenguin_users U
       ON C.username = U.username
       ORDER BY created_at DESC
-    `,
-    (err, results) => {
-      if (err) return cb(err);
-      return cb(null, results);
-    });
+    `, cb);
   },
 };
 
