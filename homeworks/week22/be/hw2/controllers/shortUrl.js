@@ -13,8 +13,8 @@ const shortUrlController = {
     bcrypt.hash(url, saltRounds, (err, hash) => {
       if (err) return console.log('bcrypt_err', err);
       const shortUrl = hash.slice(-8);
-      shortUrlModel.getUrl(shortUrl, (error, OriUrl) => {
-        if (OriUrl) return; // 希望縮網址重複時能重跑一次，但不知道怎麼重新呼叫 short
+      shortUrlModel.getUrl(shortUrl, (error, oriUrl) => {
+        if (oriUrl) return; // 希望縮網址重複時能重跑一次，但不知道怎麼重新呼叫 short
         shortUrlModel.setShort(url, shortUrl, (toerr) => {
           if (toerr) console.log(toerr);
           res.render('short', {
