@@ -1,0 +1,218 @@
+* {
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  font-family: 微軟正黑體;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: orange;
+}
+
+.flex-end {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  color: orange;
+  background-color: #3e3e3e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px;
+}
+
+.navbar-menu {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.navbar-read {
+  min-width: 70%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-read-ellipsis {
+  width: 350px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navbar-menu:hover {
+  color: rgb(255, 136, 0);
+}
+
+.navbar-search {
+  padding: 24px;
+}
+
+.about {
+  text-align: center;
+  padding: 100px;
+}
+
+.article {
+  margin-top: 70px;
+}
+
+.article-card {
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.article__content, .writeComment__form {
+  max-width: 900px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.article__content-title {
+  font-size: 36px;
+  width: 100%
+}
+
+.article__content-body {
+  font-size: 24px;
+  margin-top: 50px;
+  width: 100%;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.more {
+  cursor: pointer;
+}
+
+.more:hover {
+  font-weight: 600;
+}
+
+.option__btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.back__btn, .edit__btn, .del__btn, .ok__btn, .cancel__btn, .writeComment__submit {
+  display: inline-block;
+  padding: 10px;
+  margin-top: 40px;
+  transition: all 0.3s;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back__btn {
+  border: 2px solid #afafaf;
+}
+
+.edit__btn, .ok__btn, .writeComment__submit {
+  margin-right: 16px; 
+  font-weight: bold;
+  color: #fff;
+  border: 2px solid #007BFF;
+  background-color: #007BFF;
+}
+
+.del__btn {
+  font-weight: bold;
+  color: #fff;
+  border: 2px solid #DC3545;
+  background-color: #DC3545;
+}
+
+.cancel__btn {
+  font-weight: bold;
+  color: #fff;
+  border: 2px solid #28a745;
+  background-color: #28a745;
+}
+
+.back__btn:hover {
+  background-color: #afafaf;
+}
+
+.edit__btn:hover, .writeComment__submit:hover {
+  border: 2px solid #0062cc;
+  background-color: #0069d9;
+}
+
+.del__btn:hover {
+  border: 2px solid #bd2130;
+  background-color: #c82333;
+}
+
+.cancel__btn:hover {
+  border: 2px solid #1e7e34;
+  background-color: #218838;
+}
+
+.active:after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 1px;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: orange;
+}
+
+.writeComment__form {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+}
+
+.writeComment__label {
+  margin-top: 20px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.writeComment__input, .writeComment__textarea{
+  width: 100%;
+  padding: 10px;
+}
+
+.writeComment__textarea {
+  height: 200px;
+}
+
+.writeComment__submit {
+  margin-right: 0; 
+}
+
+@media (max-width: 1024px) {
+  .navbar-read {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
