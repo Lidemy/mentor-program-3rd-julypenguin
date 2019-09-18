@@ -1,0 +1,27 @@
+<%- include('template/header') %>
+<%- include('template/navbar') %>
+
+<div class="article">
+  <div>
+
+    <form class="writeComment__form" action="/writeComment" method="POST">
+      <h2 class="errorMessage width100 text-center <%= errorMessage.length && 'padding10' %>">
+        <%= errorMessage %>
+      </h2>
+      
+      <label class="writeComment__label" htmlFor="title">文章標題：</label>
+      <input type="text" class="writeComment__input" name="title" id="title"/>
+
+      <label class="writeComment__label" htmlFor="body">內文：</label>
+      <textarea class="writeComment__textarea" name="body" id="body" rows="50"></textarea>
+      
+      <div class="width100 flex-end">
+        <button class="edit__btn" type="submit">送出！</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+<%- include('template/footer') %>

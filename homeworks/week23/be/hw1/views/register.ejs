@@ -1,0 +1,28 @@
+<%- include('template/header') %>
+<%- include('template/navbar') %>
+
+<div class="wrapper">
+  <article class="article register">
+    <h2 class="errorMessage <%= errorMessage.length && 'padding10' %>">
+      <%= errorMessage %>
+    </h2>
+    <h2 class="title">會員註冊</h2>
+
+    <form class="userBox" action="/register" method="POST">
+      <label for="nickname">暱稱：<input type="text" name="nickname" id="nickname"></label>
+      <label for="username">帳號：<input type="text" name="username" id="username"></label>
+      <label for="password">密碼：<input type="password" name="password" id="password"></label>
+      <input class="submit edit__btn" type="submit" value="註冊">
+      <div class="clearfix"></div>
+    </form>
+    
+    <a class="toLogin" href="/login">已經是會員？</a>
+    <br>
+    <a class="back__btn" href="/comments">回到文章列</a>
+  </article>
+</div>
+
+  <%- include('template/footer') %>
+
+
+

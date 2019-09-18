@@ -1,0 +1,35 @@
+<%- include('template/headerUrlHasId') %>
+
+<div class="App">
+
+  <%- include('template/navbar') %>
+  
+  <article class="article">
+    <div class="article-card">
+      <div class="article__content">
+        <h2 class="errorMessage width100 text-center <%= errorMessage.length && 'padding10' %>">
+          <%= errorMessage %>
+        </h2>
+        <h3>作者：<%= comment.User.nickname %></h3>
+        <h1 class="article__content-title" ><%- comment.title %></h1>
+        <p class="article__content-body"><%- converter.makeHtml(comment.body) %></p> 
+        <div class="option__btn">
+          <a class="back__btn" href="/comments">上一頁</a>
+
+        <% if (userId) { %>
+
+          <div>
+            <a class="edit__btn" href="/update-comments/<%= comment.id %>">編輯</a>
+            <a class="del__btn" href="/delete-comments/<%= comment.id %>">刪除</a>
+          </div>
+
+        <% } %>
+
+        </div>
+      </div>  
+    </div>
+  </article>
+</div>
+
+<%- include('template/footer') %>
+
