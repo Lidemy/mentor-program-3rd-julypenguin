@@ -14,3 +14,6 @@ application/logs/*
 
 # Express
 db.js
+
+#sequelize-cli
+config.json

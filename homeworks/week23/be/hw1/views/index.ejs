@@ -1,0 +1,30 @@
+
+<%- include('template/header') %>
+
+
+<div class="App">
+  
+  <%- include('template/navbar') %>
+
+  <article class="article">
+
+    <% comments.forEach((comment) => { %>
+
+      <div class="article-card">
+        <div class="article__content">
+          <h3>作者：<%= comment.User.nickname %></h3>
+          <h1 class="article__content-title"> <%= comment.title %> </h1>
+          <p class="article__content-body ellipsis">
+            <%- converter.makeHtml(comment.body) %>
+          </p>
+          <a class="back__btn" href="/comments/<%= comment.id %>">管理文章</a>
+        </div>
+      </div>
+
+    <% }) %>
+
+  </article>
+  
+</div>
+
+<%- include('template/footer') %>

@@ -1,0 +1,33 @@
+<%- include('template/headerUrlHasId') %>
+
+<div class="App">
+
+  <%- include('template/navbar') %>
+  
+  <article class="article">
+    <div class="article-card">
+      <div class="article__content">
+        <h2 class="errorMessage width100 text-center <%= errorMessage.length && 'padding10' %>">
+          <%= errorMessage %>
+        </h2>
+        <h3>作者：<%= comment.User.nickname %></h3>
+
+        <form action="/update-comments/<%= comment.id %>" method="POST">
+          <textArea class="article__content-title" name="title" rows="1"><%= comment.title %></textArea>
+          <textArea class="article__content-body" name="body" rows="10"><%= comment.body %></textArea> 
+          <div class="option__btn">
+            <div></div>
+            <div>
+              <button class="ok__btn" type="submit">確認</button>
+              <a class="cancel__btn" href="/comments/<%= comment.id %>">取消</a>
+            </div>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+  </article>
+</div>
+
+<%- include('template/footer') %>
+
